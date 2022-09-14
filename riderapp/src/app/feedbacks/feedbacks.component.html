@@ -1,0 +1,61 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color:aliceblue">User Feedback</h1>
+        <div class="d-flex">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add Feedback</button>
+        </div>
+    </div>
+</nav>
+<table class="table mt-3" >
+    <thead>
+        <tr>
+            <th scope="col">FeedID</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Feeds</th>
+            <th scope="col">Update</th>
+            <th scope="col">Remove</th>
+        </tr>
+        
+    </thead>
+
+<tbody *ngFor="let feed of feedslist">
+  <tr>
+        
+        <td>{{feed.id}}</td>
+        <td>{{feed.userName}}</td>        
+        <td>{{feed.feed}}</td>
+        <td>
+            <button class="btn btn-info">Edit</button>
+        </td>
+        <td>
+            <button class="btn btn-danger">Delete</button>
+        </td>
+    </tr>
+</tbody>
+</table>
+
+<!-- Button trigger modal -->
+
+
+<div>
+    <form #addFood="ngForm" (ngSubmit)="onSubmit(addFood.value)">
+        <br>
+        <br>
+        <!-- <input type="text" name="foodname" ngModel><br><br> -->
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>User Name</mat-label>
+            <input matInput placeholder="Ex. Ramanan" name="userName" required ngModel>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Feed</mat-label>
+            <input matInput placeholder="feed" name="feed" ngModel>
+        </mat-form-field>
+
+        <br>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">Save</button>
+        </mat-card-actions>
+    </form>
+</div>
